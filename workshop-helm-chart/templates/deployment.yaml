@@ -16,7 +16,9 @@ spec:
         app: {{ .Values.serviceName }}
     spec:
       containers:
-        - name: container-name
-          image: nginx
-          ports:
+      - name: container-name
+        image: {{ .Values.image }}
+        ports:
           - containerPort: 80
+  imagePullSecrets:
+    - name: acr-secret
